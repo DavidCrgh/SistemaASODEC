@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../vista/facturar.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Sistema ASOTEC");
         primaryStage.setScene(new Scene(root, 1024, 769));
         primaryStage.show();
     }
