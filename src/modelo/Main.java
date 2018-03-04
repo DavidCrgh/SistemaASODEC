@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.Controller_VistaInicial;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,12 +11,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../vista/vistaInicial.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../vista/vistaInicial.fxml"));
+        Parent root = loader.load();
+        Controller_VistaInicial controladorInicio = loader.getController();
+        Data datos = new Data();
+        controladorInicio.modelo_facturar = new Modelo_Facturar(datos);
+        //Parent root = FXMLLoader.load(getClass().getResource("../vista/vistaInicial.fxml"));
         primaryStage.setTitle("Sistema ASOTEC");
         primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
     }
-
 
     public static void main(String[] args) {
         launch(args);

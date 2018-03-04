@@ -5,4 +5,10 @@ package modelo;
  * Fecha: 04-Mar-18 Tiempo: 12:55 PM
  */
 public class Modelo_Facturar {
+
+    public Data datos;
+
+    public Modelo_Facturar(Data datos){
+        this.datos = datos;
+    }
 }

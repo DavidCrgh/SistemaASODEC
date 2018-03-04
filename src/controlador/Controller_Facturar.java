@@ -1,13 +1,18 @@
 package controlador;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class Controller_Facturar {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class Controller_Facturar implements Initializable{
 
     // Elementos del view para agregar productos al carrito
     @FXML
@@ -54,5 +59,21 @@ public class Controller_Facturar {
     public Button boton_Credito;
 
     @FXML
-    public Button boton_Confirmar;
+    public Button boton_ConfirmarVenta;
+
+    // Handlers de eventos del view para agregar productos
+    public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
+
+    }
+
+    @FXML
+    public void handleBotonConfirmarFacturaAction(ActionEvent event){
+        pane_ListaProductos.setVisible(false);
+        pane_PagoCompra.setVisible(true);
+    }
+
+    @FXML
+    public void handleBotonAgregarProductoAction(ActionEvent event){
+
+    }
 }
