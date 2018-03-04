@@ -11,9 +11,9 @@ import java.util.ArrayList;
  */
 public class Data {
 
-    private ArrayList<Cliente> clientes;
-    private ArrayList<Producto> productos;
-    private ArrayList<Factura> facturas;
+    public ArrayList<Cliente> clientes;
+    public ArrayList<Producto> productos;
+    public ArrayList<Factura> facturas;
 
 
     public Data() {
@@ -27,12 +27,9 @@ public class Data {
         productos.add(new Producto(1,"Flauta de Carne",800,13));
         productos.add(new Producto(1,"Agua",1100,30));
 
-        Cliente cliente1= new Cliente(1,"Jeison Esquivel",true);
-        Cliente cliente2= new Cliente(2,"David Valpene",true);
-        Cliente cliente3= new Cliente(3,"Nicolas Cage",false);
-        clientes.add(cliente1);
-        clientes.add(cliente2);
-        clientes.add(cliente3);
+        clientes.add(new Cliente(1,"Jeison Esquivel",true));
+        clientes.add(new Cliente(2,"David Valpene",true));
+        clientes.add(new Cliente(3,"Nicolas Cage",false));
 
     }
 

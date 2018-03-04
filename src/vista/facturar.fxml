@@ -43,10 +43,10 @@
                      <content>
                         <TableView fx:id="tabla_Productos" prefHeight="510.0" prefWidth="656.0">
                           <columns>
-                            <TableColumn prefWidth="132.0" text="Código" />
-                            <TableColumn prefWidth="237.0" text="Nombre" />
-                              <TableColumn prefWidth="149.0" text="Precio (Colones)" />
-                              <TableColumn prefWidth="137.0" text="Cantidad" />
+                            <TableColumn fx:id="colProd_Codigo" prefWidth="132.0" text="Código" />
+                            <TableColumn fx:id="colProd_Nombre" prefWidth="237.0" text="Nombre" />
+                              <TableColumn fx:id="colProd_Precio" prefWidth="149.0" text="Precio (Colones)" />
+                              <TableColumn fx:id="colProd_Cantidad" prefWidth="137.0" text="Cantidad" />
                           </columns>
                         </TableView>
                      </content>
@@ -61,10 +61,9 @@
                      <content>
                         <TableView fx:id="tabla_Carrito" layoutX="796.0" layoutY="213.0" prefHeight="252.0" prefWidth="201.0">
                           <columns>
-                            <TableColumn prefWidth="24.0" text="#" />
-                            <TableColumn prefWidth="50.0" text="Cod" />
-                              <TableColumn prefWidth="57.0" text="Nbr" />
-                              <TableColumn prefWidth="75.0" text="Cant." />
+                            <TableColumn fx:id="colCarrito_Codigo" prefWidth="50.0" text="Cód." />
+                              <TableColumn fx:id="colCarrito_Nombre" prefWidth="101.0" text="Nombre" />
+                              <TableColumn fx:id="colCarrito_Cantidad" prefWidth="49.0" text="Cant." />
                           </columns>
                         </TableView>
                      </content>
