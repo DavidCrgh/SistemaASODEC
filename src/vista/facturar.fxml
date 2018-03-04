@@ -32,7 +32,7 @@
                   <Font name="Segoe UI" size="27.0" />
                </font>
             </Text>
-            <Pane layoutY="142.0" prefHeight="626.0" prefWidth="1024.0">
+            <Pane layoutY="142.0" prefHeight="626.0" prefWidth="1024.0" visible="false">
                <children>
                   <Text layoutX="37.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista de Productos">
                      <font>
@@ -41,7 +41,7 @@
                   </Text>
                   <ScrollPane layoutX="37.0" layoutY="62.0" prefHeight="512.0" prefWidth="660.0">
                      <content>
-                        <TableView prefHeight="510.0" prefWidth="656.0">
+                        <TableView fx:id="tabla_Productos" prefHeight="510.0" prefWidth="656.0">
                           <columns>
                             <TableColumn prefWidth="132.0" text="Código" />
                             <TableColumn prefWidth="237.0" text="Nombre" />
@@ -56,10 +56,10 @@
                         <Font name="MS Office Symbol Regular" size="28.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="794.0" layoutY="97.0" prefHeight="31.0" prefWidth="208.0" promptText="ID de Producto" />
-                  <ScrollPane layoutX="794.0" layoutY="232.0" prefHeight="256.0" prefViewportHeight="200.0" prefViewportWidth="174.0" prefWidth="208.0">
+                  <TextField fx:id="entrada_IDProd" layoutX="794.0" layoutY="97.0" prefHeight="31.0" prefWidth="208.0" promptText="ID de Producto" />
+                  <ScrollPane layoutX="792.0" layoutY="281.0" prefHeight="256.0" prefViewportHeight="200.0" prefViewportWidth="174.0" prefWidth="208.0">
                      <content>
-                        <TableView layoutX="796.0" layoutY="213.0" prefHeight="252.0" prefWidth="201.0">
+                        <TableView fx:id="tabla_Carrito" layoutX="796.0" layoutY="213.0" prefHeight="252.0" prefWidth="201.0">
                           <columns>
                             <TableColumn prefWidth="24.0" text="#" />
                             <TableColumn prefWidth="50.0" text="Cod" />
@@ -69,20 +69,21 @@
                         </TableView>
                      </content>
                   </ScrollPane>
-                  <Spinner layoutX="794.0" layoutY="143.0" prefHeight="28.0" prefWidth="208.0" />
-                  <Button layoutX="830.0" layoutY="525.0" mnemonicParsing="false" text="Configurar Facuración" />
-                  <Text fill="WHITE" layoutX="794.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrito">
+                  <Button fx:id="button_ConfirmarFactura" layoutX="828.0" layoutY="574.0" mnemonicParsing="false" text="Confirmar Facuración" />
+                  <Text fill="WHITE" layoutX="792.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrito">
                      <font>
                         <Font name="MS Office Symbol Regular" size="28.0" />
                      </font>
                   </Text>
+                  <Button fx:id="button_AgregarProd" layoutX="941.0" layoutY="187.0" mnemonicParsing="false" text="Agregar" />
+                  <Spinner fx:id="spinner_Cantidad" layoutX="794.0" layoutY="143.0" prefHeight="28.0" prefWidth="208.0" />
                </children>
             </Pane>
-            <Pane layoutY="143.0" prefHeight="626.0" prefWidth="1024.0" visible="false">
+            <Pane fx:id="pane_PagoCompra" layoutY="143.0" prefHeight="626.0" prefWidth="1024.0">
                <children>
                   <ScrollPane layoutX="57.0" layoutY="62.0" prefHeight="373.0" prefWidth="660.0">
                      <content>
-                        <TableView prefHeight="369.0" prefWidth="660.0">
+                        <TableView fx:id="tabla_CarritoCompra" prefHeight="369.0" prefWidth="660.0">
                           <columns>
                             <TableColumn prefWidth="90.0" text="Código" />
                             <TableColumn prefWidth="245.0" text="Nombre" />
@@ -97,17 +98,17 @@
                         <Font size="26.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="796.0" layoutY="110.0" prefHeight="25.0" prefWidth="143.0" promptText="Carné Estudiantil" />
-                  <Button layoutX="952.0" layoutY="110.0" mnemonicParsing="false" text="Aplicar" />
+                  <TextField fx:id="entrada_IDEstudiante" layoutX="796.0" layoutY="110.0" prefHeight="25.0" prefWidth="143.0" promptText="Carné Estudiantil" />
+                  <Button fx:id="boton_AplicarDescuento" layoutX="952.0" layoutY="110.0" mnemonicParsing="false" text="Aplicar" />
                   <Text fill="WHITE" layoutX="796.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Método de Pago">
                      <font>
                         <Font name="MS Office Symbol Regular" size="22.0" />
                      </font>
                   </Text>
-                  <Button layoutX="796.0" layoutY="197.0" mnemonicParsing="false" text="Efectivo" />
-                  <Button layoutX="796.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Tarjeta" />
-                  <Button layoutX="796.0" layoutY="272.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Crédito" />
-                  <Button layoutX="810.0" layoutY="532.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="171.0" text="Confirmar" />
+                  <Button fx:id="boton_Efectivo" layoutX="796.0" layoutY="197.0" mnemonicParsing="false" text="Efectivo" />
+                  <Button fx:id="boton_Tarjeta" layoutX="796.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Tarjeta" />
+                  <Button fx:id="boton_Credito" layoutX="796.0" layoutY="272.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Crédito" />
+                  <Button fx:id="boton_Confirmar" layoutX="810.0" layoutY="532.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="171.0" text="Confirmar" />
                   <TextArea layoutX="491.0" layoutY="451.0" prefHeight="143.0" prefWidth="226.0" />
                   <Pane layoutX="796.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
                      <children>
@@ -137,6 +138,11 @@
                         </Text>
                      </children>
                   </Pane>
+                  <Text layoutX="57.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carrito">
+                     <font>
+                        <Font name="MS Office Symbol Regular" size="28.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
          </children>

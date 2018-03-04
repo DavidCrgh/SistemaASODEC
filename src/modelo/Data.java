@@ -1,5 +1,8 @@
 package modelo;
 
+import modelo.datos.Cliente;
+import modelo.datos.Producto;
+
 import java.util.ArrayList;
 
 /**
