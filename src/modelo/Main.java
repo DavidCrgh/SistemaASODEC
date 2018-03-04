@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../vista/facturar.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../vista/vistaInicial.fxml"));
         primaryStage.setTitle("Sistema ASOTEC");
-        primaryStage.setScene(new Scene(root, 1024, 769));
+        primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
     }
 

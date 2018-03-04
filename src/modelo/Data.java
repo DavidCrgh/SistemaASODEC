@@ -1,6 +1,7 @@
 package modelo;
 
 import modelo.datos.Cliente;
+import modelo.datos.Factura;
 import modelo.datos.Producto;
 
 import java.util.ArrayList;
@@ -12,9 +13,14 @@ public class Data {
 
     private ArrayList<Cliente> clientes;
     private ArrayList<Producto> productos;
+    private ArrayList<Factura> facturas;
 
 
     public Data() {
+        productos= new ArrayList<>();
+        clientes= new ArrayList<>();
+        facturas = new ArrayList<>();
+
         Producto producto1= new Producto(1,"Sardina del Mar",575,30);
         Producto producto2= new Producto(2,"Chocolate milán",150,5);
         Producto producto3= new Producto(3,"Flauta de pollo",800,20);
@@ -32,12 +38,8 @@ public class Data {
         clientes.add(cliente1);
         clientes.add(cliente2);
         clientes.add(cliente3);
+
     }
-
-
-
-
-
 
 
 
