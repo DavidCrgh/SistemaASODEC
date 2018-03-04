@@ -21,16 +21,11 @@ public class Data {
         clientes= new ArrayList<>();
         facturas = new ArrayList<>();
 
-        Producto producto1= new Producto(1,"Sardina del Mar",575,30);
-        Producto producto2= new Producto(2,"Chocolate milán",150,5);
-        Producto producto3= new Producto(3,"Flauta de pollo",800,20);
-        Producto producto4= new Producto(1,"Flauta de Carne",800,13);
-        Producto producto5= new Producto(1,"Agua",1100,30);
-        productos.add(producto1);
-        productos.add(producto2);
-        productos.add(producto3);
-        productos.add(producto4);
-        productos.add(producto5);
+        productos.add(new Producto(1,"Sardina del Mar",575,30));
+        productos.add(new Producto(2,"Chocolate milán",150,5));
+        productos.add(new Producto(3,"Flauta de pollo",800,20));
+        productos.add(new Producto(1,"Flauta de Carne",800,13));
+        productos.add(new Producto(1,"Agua",1100,30));
 
         Cliente cliente1= new Cliente(1,"Jeison Esquivel",true);
         Cliente cliente2= new Cliente(2,"David Valpene",true);

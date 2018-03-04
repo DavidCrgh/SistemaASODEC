@@ -41,6 +41,8 @@ public class Controller_VistaInicial {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../vista/facturar.fxml"));
             Parent root = fxmlLoader.load();
+            Controller_Facturar controller_facturar = fxmlLoader.getController();
+            controller_facturar.modelo = modelo_facturar;
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             Stage principal= (Stage) ((Node) event.getSource()).getScene().getWindow();

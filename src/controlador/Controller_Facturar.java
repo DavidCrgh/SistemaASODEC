@@ -8,11 +8,14 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
+import modelo.Modelo_Facturar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller_Facturar implements Initializable{
+
+    public Modelo_Facturar modelo;
 
     // Elementos del view para agregar productos al carrito
     @FXML
