@@ -18,6 +18,7 @@ public class Cliente {
         this.credito = 0;
     }
 
+
     public int getIdCliente() {
         return idCliente;
     }
