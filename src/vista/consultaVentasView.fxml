@@ -17,14 +17,14 @@
    <top>
       <Pane prefHeight="88.0" prefWidth="600.0" style="-fx-background-color: #6aca25;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="39.0" layoutY="28.0" text="Dialogo de consultas de ventas">
+            <Label layoutX="39.0" layoutY="28.0" text="Diálogo de consultas de ventas">
                <font>
                   <Font name="Segoe UI" size="27.0" />
                </font>
             </Label>
-            <ImageView fitHeight="74.0" fitWidth="115.0" layoutX="499.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="74.0" fitWidth="110.0" layoutX="502.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Desktop/Factura_01-400x400.png" />
+                  <Image url="@../multimedia/factura.png" />
                </image>
             </ImageView>
          </children></Pane>

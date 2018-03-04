@@ -1,4 +1,4 @@
-package modelo;
+package controlador;
 
 /**
  * Created by Jeison on 04/03/2018.
