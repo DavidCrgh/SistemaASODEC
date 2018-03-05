@@ -73,7 +73,8 @@
                      </font>
                   </Text>
                   <Button fx:id="button_AgregarProd" layoutX="941.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleBotonAgregarProductoAction" text="Agregar" />
-                  <TextField fx:id="entrada_CantidadProd" layoutX="792.0" layoutY="142.0" prefHeight="31.0" prefWidth="208.0" promptText="Cantidad" />
+                  <TextField fx:id="entrada_CantidadProd" layoutX="792.0" layoutY="142.0" prefHeight="31.0" prefWidth="208.0" promptText="Cantidad" text="1" />
+                  <Button fx:id="boton_Cancelar" layoutX="37.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleBotonCancelarAction" text="Cancelar" />
                </children>
             </Pane>
             <Pane fx:id="pane_PagoCompra" layoutY="143.0" prefHeight="626.0" prefWidth="1024.0" visible="false">

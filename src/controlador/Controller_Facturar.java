@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import modelo.Modelo_Facturar;
 import modelo.datos.Producto;
 
@@ -67,6 +68,9 @@ public class Controller_Facturar implements Initializable{
     @FXML
     public Button button_ConfirmarFactura;
 
+    @FXML
+    public Button boton_Cancelar;
+
     //Elementos del view para pagar la compra
     @FXML
     public Pane pane_PagoCompra;
@@ -124,6 +128,8 @@ public class Controller_Facturar implements Initializable{
     @FXML
     public Text texto_InfoFact;
 
+
+
     // Handlers de eventos del view para agregar productos
     public void initialize(URL fxmlFileLocation, ResourceBundle resources) {
         //Cofiguracion de columnas de tabla de productos
@@ -169,17 +175,12 @@ public class Controller_Facturar implements Initializable{
     @FXML
     public void handleBotonConfirmarVentaAction(ActionEvent event){
         modelo.datos.facturas.add(modelo.factura);
+        //TODO Actualizar inventario
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Factura registrada");
         alert.setContentText("Imprimiendo factura...");
         alert.showAndWait().filter(response -> response == ButtonType.OK);
-        pane_ListaProductos.setVisible(true);
-        pane_PagoCompra.setVisible(false);
-        //TODO Actualizar inventario
-        modelo.carrito = new ArrayList<>();
-        tabla_Carrito.getItems().clear();
-        modelo.crearNuevaFactura();
-
+        limpiarInterfaz();
     }
 
     @FXML
@@ -264,6 +265,12 @@ public class Controller_Facturar implements Initializable{
         boton_ConfirmarVenta.setDisable(false);
     }
 
+    @FXML
+    public void handleBotonCancelarAction(ActionEvent event){
+        Stage stage = (Stage) boton_Cancelar.getScene().getWindow();
+        stage.close();
+    }
+
     public void cargarTablaProductos(){
         ObservableList<Producto> datosTablaProducto = FXCollections.observableArrayList(modelo.datos.productos);
         tabla_Productos.setItems(datosTablaProducto);
@@ -276,5 +283,22 @@ public class Controller_Facturar implements Initializable{
 
     public void desplegarInfoFactura(){
         texto_InfoFact.setText(modelo.construirInformacionPago());
+    }
+
+    public void limpiarInterfaz(){
+        pane_ListaProductos.setVisible(true);
+        pane_PagoCompra.setVisible(false);
+        boton_Credito.setDisable(true);
+        boton_ConfirmarVenta.setDisable(true);
+        boton_AplicarDescuento.setDisable(false);
+        panel_Efectivo.setVisible(false);
+        panel_Tarjeta.setVisible(false);
+        panel_Credito.setVisible(false);
+        entrada_IDProd.setText("");
+        entrada_CantidadProd.setText("1");
+        entrada_IDEstudiante.setText("");
+        modelo.carrito = new ArrayList<>();
+        tabla_Carrito.getItems().clear();
+        modelo.crearNuevaFactura();
     }
 }

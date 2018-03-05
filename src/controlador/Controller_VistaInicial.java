@@ -29,7 +29,8 @@ public class Controller_VistaInicial {
             stage.setScene(new Scene(root));
             Stage principal= (Stage) ((Node) event.getSource()).getScene().getWindow();
             principal.hide();
-            stage.show();
+            stage.showAndWait();
+            principal.show();
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -47,7 +48,8 @@ public class Controller_VistaInicial {
             Stage principal= (Stage) ((Node) event.getSource()).getScene().getWindow();
             principal.hide();
             controller_facturar.cargarTablaProductos();
-            stage.show();
+            stage.showAndWait();
+            principal.show();
         }catch (Exception e){
             e.printStackTrace();
         }
