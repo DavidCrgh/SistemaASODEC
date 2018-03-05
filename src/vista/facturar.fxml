@@ -2,10 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -59,7 +57,7 @@
                   <TextField fx:id="entrada_IDProd" layoutX="794.0" layoutY="97.0" prefHeight="31.0" prefWidth="208.0" promptText="ID de Producto" />
                   <ScrollPane layoutX="792.0" layoutY="281.0" prefHeight="256.0" prefViewportHeight="200.0" prefViewportWidth="174.0" prefWidth="208.0">
                      <content>
-                        <TableView fx:id="tabla_Carrito" layoutX="796.0" layoutY="213.0" prefHeight="252.0" prefWidth="201.0">
+                        <TableView fx:id="tabla_Carrito" editable="true" layoutX="796.0" layoutY="213.0" prefHeight="252.0" prefWidth="201.0">
                           <columns>
                             <TableColumn fx:id="colCarrito_Codigo" prefWidth="50.0" text="Cód." />
                               <TableColumn fx:id="colCarrito_Nombre" prefWidth="101.0" text="Nombre" />
@@ -75,7 +73,7 @@
                      </font>
                   </Text>
                   <Button fx:id="button_AgregarProd" layoutX="941.0" layoutY="187.0" mnemonicParsing="false" onAction="#handleBotonAgregarProductoAction" text="Agregar" />
-                  <Spinner fx:id="spinner_Cantidad" layoutX="794.0" layoutY="143.0" prefHeight="28.0" prefWidth="208.0" />
+                  <TextField fx:id="entrada_CantidadProd" layoutX="792.0" layoutY="142.0" prefHeight="31.0" prefWidth="208.0" promptText="Cantidad" />
                </children>
             </Pane>
             <Pane fx:id="pane_PagoCompra" layoutY="143.0" prefHeight="626.0" prefWidth="1024.0" visible="false">
@@ -84,10 +82,10 @@
                      <content>
                         <TableView fx:id="tabla_CarritoCompra" prefHeight="369.0" prefWidth="660.0">
                           <columns>
-                            <TableColumn prefWidth="90.0" text="Código" />
-                            <TableColumn prefWidth="245.0" text="Nombre" />
-                              <TableColumn prefWidth="182.0" text="Precio (Colones)" />
-                              <TableColumn minWidth="0.0" prefWidth="117.0" text="Cantidad" />
+                            <TableColumn fx:id="colCarritoCompra_Codigo" prefWidth="90.0" text="Código" />
+                            <TableColumn fx:id="colCarritoCompra_Nombre" prefWidth="245.0" text="Nombre" />
+                              <TableColumn fx:id="colCarritoCompra_Precio" prefWidth="182.0" text="Precio (Colones)" />
+                              <TableColumn fx:id="colCarritoCompra_Cantidad" minWidth="0.0" prefWidth="117.0" text="Cantidad" />
                           </columns>
                         </TableView>
                      </content>
@@ -98,28 +96,28 @@
                      </font>
                   </Text>
                   <TextField fx:id="entrada_IDEstudiante" layoutX="796.0" layoutY="110.0" prefHeight="25.0" prefWidth="143.0" promptText="Carné Estudiantil" />
-                  <Button fx:id="boton_AplicarDescuento" layoutX="952.0" layoutY="110.0" mnemonicParsing="false" text="Aplicar" />
+                  <Button fx:id="boton_AplicarDescuento" layoutX="952.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleBotonAplicarDescuentoAction" text="Aplicar" />
                   <Text fill="WHITE" layoutX="796.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Método de Pago">
                      <font>
                         <Font name="MS Office Symbol Regular" size="22.0" />
                      </font>
                   </Text>
-                  <Button fx:id="boton_Efectivo" layoutX="796.0" layoutY="197.0" mnemonicParsing="false" text="Efectivo" />
-                  <Button fx:id="boton_Tarjeta" layoutX="796.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Tarjeta" />
-                  <Button fx:id="boton_Credito" layoutX="796.0" layoutY="272.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" text="Crédito" />
-                  <Button fx:id="boton_ConfirmarVenta" layoutX="810.0" layoutY="532.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="171.0" text="Confirmar" />
-                  <TextArea layoutX="491.0" layoutY="451.0" prefHeight="143.0" prefWidth="226.0" />
-                  <Pane layoutX="796.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
+                  <Button fx:id="boton_Efectivo" layoutX="796.0" layoutY="197.0" mnemonicParsing="false" onAction="#handleBotonEfectivoAction" text="Efectivo" />
+                  <Button fx:id="boton_Tarjeta" layoutX="796.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleBotonTarjetaAction" prefHeight="25.0" prefWidth="57.0" text="Tarjeta" />
+                  <Button fx:id="boton_Credito" disable="true" layoutX="796.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleBotonCreditoAction" prefHeight="25.0" prefWidth="57.0" text="Crédito" />
+                  <Button fx:id="boton_ConfirmarVenta" disable="true" layoutX="810.0" layoutY="532.0" mnemonicParsing="false" onAction="#handleBotonConfirmarVentaAction" prefHeight="62.0" prefWidth="171.0" text="Confirmar" />
+                  <Pane fx:id="panel_Efectivo" layoutX="796.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
                      <children>
-                        <TextField layoutX="14.0" layoutY="37.0" />
+                        <TextField fx:id="entrada_Efectivo" layoutX="14.0" layoutY="37.0" />
                         <Text fill="WHITE" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efectivo">
                            <font>
                               <Font name="MS Office Symbol Regular" size="14.0" />
                            </font>
                         </Text>
+                        <Button fx:id="boton_Ok" layoutX="168.0" layoutY="37.0" mnemonicParsing="false" onAction="#handleBotonOkAction" prefHeight="25.0" prefWidth="33.0" text="Ok" />
                      </children>
                   </Pane>
-                  <Pane layoutX="795.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
+                  <Pane fx:id="panel_Tarjeta" layoutX="795.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
                      <children>
                         <Text fill="WHITE" layoutX="11.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Esperando datafono...">
                            <font>
@@ -128,7 +126,7 @@
                         </Text>
                      </children>
                   </Pane>
-                  <Pane layoutX="795.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
+                  <Pane fx:id="panel_Credito" layoutX="795.0" layoutY="313.0" prefHeight="85.0" prefWidth="198.0" visible="false">
                      <children>
                         <Text fill="WHITE" layoutX="-1.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Se realizará un cargo a la cuenta del estudiante." wrappingWidth="200.0">
                            <font>
@@ -142,6 +140,7 @@
                         <Font name="MS Office Symbol Regular" size="28.0" />
                      </font>
                   </Text>
+                  <Text fx:id="texto_InfoFact" layoutX="57.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número: 0&#10;Total: 0&#10;Descuento: 0&#10;Efectivo: 0&#10;Cambio: 0&#10;Total Final: 0" />
                </children>
             </Pane>
          </children>

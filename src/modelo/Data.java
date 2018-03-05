@@ -24,8 +24,8 @@ public class Data {
         productos.add(new Producto(1,"Sardina del Mar",575,30));
         productos.add(new Producto(2,"Chocolate milán",150,5));
         productos.add(new Producto(3,"Flauta de pollo",800,20));
-        productos.add(new Producto(1,"Flauta de Carne",800,13));
-        productos.add(new Producto(1,"Agua",1100,30));
+        productos.add(new Producto(4,"Flauta de Carne",800,13));
+        productos.add(new Producto(5,"Agua",1100,30));
 
         clientes.add(new Cliente(1,"Jeison Esquivel",true));
         clientes.add(new Cliente(2,"David Valpene",true));
