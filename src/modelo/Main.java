@@ -17,8 +17,8 @@ public class Main extends Application {
         Data datos = new Data();
         controladorInicio.modelo_facturar = new Modelo_Facturar(datos);
         //Parent root = FXMLLoader.load(getClass().getResource("../vista/vistaInicial.fxml"));
-        primaryStage.setTitle("Sistema ASOTEC");
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setTitle("Sistema ASODEC");
+        primaryStage.setScene(new Scene(root, 600, 200));
         primaryStage.show();
     }
 
