@@ -2,10 +2,19 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="559.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controller_VistaInicial">
+<AnchorPane prefHeight="200.0" prefWidth="600.0" style="-fx-background-color: #6aca25;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controller_VistaInicial">
    <children>
-      <Button layoutX="65.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleBotonFacturarAction" prefHeight="93.0" prefWidth="159.0" text="FACTURAR" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="334.5565164501859" AnchorPane.topAnchor="138.0" />
-      <Button layoutX="338.0" layoutY="138.0" mnemonicParsing="false" onAction="#handleBotonConsultarAction" prefHeight="93.0" prefWidth="159.0" text="CONSULTAR" AnchorPane.leftAnchor="338.0" AnchorPane.rightAnchor="61.55651645018591" AnchorPane.topAnchor="138.0" />
+      <Button layoutX="63.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleBotonFacturarAction" prefHeight="93.0" prefWidth="159.0" text="FACTURAR" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="336.5565164501859" AnchorPane.topAnchor="69.0" />
+      <Button fx:id="btn_Consultar" layoutX="336.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleBotonConsultarAction" prefHeight="93.0" prefWidth="159.0" text="CONSULTAR" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="63.55651645018588" AnchorPane.topAnchor="69.0" />
+      <Text layoutX="177.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema ASODEC">
+         <font>
+            <Font name="MS Office Symbol Regular" size="33.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#434343" height="145.0" layoutX="-84.0" layoutY="-72.0" rotate="-49.2" stroke="BLACK" strokeType="INSIDE" width="169.0" />
    </children>
 </AnchorPane>

@@ -203,16 +203,20 @@ public class Controller_Facturar implements Initializable{
         int idProducto = Integer.parseInt(entrada_IDProd.getText());
         int cantidadProd = Integer.parseInt(entrada_CantidadProd.getText());
         Producto productoAgregado = modelo.obtenerProducto(modelo.datos.productos, idProducto);
-        if (productoAgregado != null) {
+        if(productoAgregado == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("ID de Producto inválido.");
+            alert.showAndWait().filter(response -> response == ButtonType.OK);
+        } else if(cantidadProd > productoAgregado.getCantidad() || cantidadProd <= 0){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Cantidad de producto no disponible.");
+            alert.showAndWait().filter(response -> response == ButtonType.OK);
+        } else{
             Producto productoTemporal = new Producto(productoAgregado.getCodigo(), productoAgregado.getNombre(), productoAgregado.getPrecio(), cantidadProd);
             modelo.carrito.add(productoTemporal);
             modelo.factura.insertProductoFactura(productoTemporal, productoTemporal.getCantidad());
             ObservableList<Producto> datosCarrito = FXCollections.observableArrayList(modelo.carrito);
             tabla_Carrito.setItems(datosCarrito);
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("ID de Producto inválido.");
-            alert.showAndWait().filter(response -> response == ButtonType.OK);
         }
     }
 
@@ -225,6 +229,9 @@ public class Controller_Facturar implements Initializable{
             boton_Credito.setDisable(false);
             boton_AplicarDescuento.setDisable(true);
         } else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("El ID ingresado no pertenece a un estudiante.");
+            alert.showAndWait().filter(response -> response == ButtonType.OK);
         }
     }
 
@@ -282,16 +289,16 @@ public class Controller_Facturar implements Initializable{
         tabla_Productos.setItems(datosTablaProducto);
     }
 
-    public void cargarTablaCarrito(){
+    private void cargarTablaCarrito(){
         ObservableList<Producto> datosTablaCarrito = FXCollections.observableArrayList(modelo.carrito);
         tabla_CarritoCompra.setItems(datosTablaCarrito);
     }
 
-    public void desplegarInfoFactura(){
+    private void desplegarInfoFactura(){
         texto_InfoFact.setText(modelo.construirInformacionPago());
     }
 
-    public void limpiarInterfaz(){
+    private void limpiarInterfaz(){
         pane_ListaProductos.setVisible(true);
         pane_PagoCompra.setVisible(false);
         boton_Credito.setDisable(true);
@@ -301,7 +308,7 @@ public class Controller_Facturar implements Initializable{
         panel_Tarjeta.setVisible(false);
         panel_Credito.setVisible(false);
         entrada_IDProd.setText("");
-        entrada_CantidadProd.setText("1");
+        entrada_CantidadProd.setText("");
         entrada_IDEstudiante.setText("");
         modelo.carrito = new ArrayList<>();
         tabla_Carrito.getItems().clear();
