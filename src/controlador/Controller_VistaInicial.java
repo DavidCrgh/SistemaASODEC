@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import modelo.Modelo_ConsultaVentas;
 import modelo.Modelo_Facturar;
 
 
@@ -18,6 +19,7 @@ import modelo.Modelo_Facturar;
 public class Controller_VistaInicial {
 
     public Modelo_Facturar modelo_facturar;
+    public Modelo_ConsultaVentas modelo_consultaVentas;
 
 
     @FXML
@@ -25,6 +27,9 @@ public class Controller_VistaInicial {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../vista/consultaVentasView.fxml"));
             Parent root = fxmlLoader.load();
+            Controller_consultarVentas controller_consultarVentas = fxmlLoader.getController();
+            controller_consultarVentas.modelo_consultaVentas = modelo_consultaVentas;
+            controller_consultarVentas.cargarFacturas();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             Stage principal= (Stage) ((Node) event.getSource()).getScene().getWindow();

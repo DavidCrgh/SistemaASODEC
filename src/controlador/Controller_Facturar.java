@@ -14,7 +14,10 @@ import modelo.Modelo_Facturar;
 import modelo.datos.Producto;
 
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -174,6 +177,9 @@ public class Controller_Facturar implements Initializable{
 
     @FXML
     public void handleBotonConfirmarVentaAction(ActionEvent event){
+
+        modelo.factura.setFechaFactura(new Date());
+        modelo.factura.setCarrito(modelo.carrito);
         modelo.datos.facturas.add(modelo.factura);
         modelo.actualizarInventario();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

@@ -2,9 +2,14 @@ package modelo;
 
 import modelo.datos.Cliente;
 import modelo.datos.Factura;
+import modelo.datos.LineaProducto;
 import modelo.datos.Producto;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by Jeison on 04/03/2018.
@@ -31,7 +36,13 @@ public class Data {
         clientes.add(new Cliente(2,"David Valpene",true));
         clientes.add(new Cliente(3,"Nicolas Cage",false));
 
+
+
     }
+
+
+
+
 
 
 

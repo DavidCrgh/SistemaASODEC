@@ -1,5 +1,7 @@
 package modelo.datos;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,10 +15,12 @@ public class Factura {
     private double totalFinal;
     private double descuento;
     private double efectivo;
+    private Date fechaFactura;
     private double cambio;
     private String metodoPago;
     private double descuentoPorcentual;
     private ArrayList<LineaProducto> detalleFactura;
+    private ArrayList<Producto> carrito;
 
     public Factura(int numeroFactura) {
         this.numeroFactura = numeroFactura;
@@ -111,5 +115,25 @@ public class Factura {
 
     public void setMetodoPago(String metodoPago) {
         this.metodoPago = metodoPago;
+    }
+
+    public Date getFechaFactura() {
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        formatoFecha.format(fechaFactura);
+        return fechaFactura;
+    }
+
+    public void setFechaFactura(Date fechaFactura) {
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        formatoFecha.format(fechaFactura);
+        this.fechaFactura = fechaFactura;
+    }
+
+    public void setCarrito(ArrayList<Producto> carrito) {
+        this.carrito = carrito;
+    }
+
+    public ArrayList<Producto> getCarrito() {
+        return carrito;
     }
 }

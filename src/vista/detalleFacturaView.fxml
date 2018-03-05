@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controller_DetalleFactura">
+   <top>
+      <Pane prefHeight="89.0" prefWidth="600.0" style="-fx-background-color: #6aca25;" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="40.0" layoutY="29.0" text="Detalle de facturación">
+               <font>
+                  <Font name="Segoe UI" size="27.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="72.0" fitWidth="67.0" layoutX="507.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../multimedia/detalleFactura.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </top>
+   <bottom>
+      <Pane prefHeight="418.0" prefWidth="607.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tabla_detalleFactura" layoutX="39.0" layoutY="72.0" prefHeight="165.0" prefWidth="522.0">
+              <columns>
+                <TableColumn fx:id="columna_codigo" prefWidth="76.79993057250977" text="CODIGO" />
+                <TableColumn fx:id="columna_nombre" prefWidth="248.76519012451172" text="NOMBRE PRODUCTO" />
+                  <TableColumn fx:id="columna_precio" prefWidth="116.03472900390625" text="PRECIO UNITARIO" />
+                  <TableColumn fx:id="columna_cantidad" prefWidth="81.8087158203125" text="CANTIDAD" />
+              </columns>
+            </TableView>
+            <Label layoutX="37.0" layoutY="14.0" text="NUMERO DE FATURA:" />
+            <Label layoutX="37.0" layoutY="44.0" text="FECHA DE FACTURA:" />
+            <Label fx:id="label_numeroFactura" layoutX="197.0" layoutY="14.0" prefHeight="18.0" prefWidth="81.0" text="numero" textFill="RED" />
+            <Label fx:id="label_fechaFactura" layoutX="198.0" layoutY="44.0" prefHeight="18.0" prefWidth="229.0" text="fecha" textFill="RED" />
+            <Label layoutX="37.0" layoutY="260.0" text="METODO DE PAGO:" />
+            <Label layoutX="37.0" layoutY="386.0" text="TOTAL PARCIAL:" />
+            <Label layoutX="37.0" layoutY="354.0" text="DESCUENTO:" />
+            <Label layoutX="38.0" layoutY="290.0" text="EFECTIVO:" />
+            <Label layoutX="38.0" layoutY="323.0" text="VUELTO:" />
+            <Label layoutX="418.0" layoutY="281.0" text="TOTAL:" underline="true" />
+            <Label fx:id="label_totalParcial" layoutX="177.0" layoutY="386.0" prefHeight="18.0" prefWidth="136.0" text="TOTAL PARCIAL" textFill="RED" />
+            <Label fx:id="label_metodo" layoutX="177.0" layoutY="260.0" prefHeight="18.0" prefWidth="126.0" text="metodo" textFill="RED" />
+            <Label fx:id="label_descuento" layoutX="174.0" layoutY="354.0" prefHeight="18.0" prefWidth="142.0" text="descuento" textFill="RED" />
+            <Label fx:id="label_efectivo" layoutX="176.0" layoutY="290.0" prefHeight="18.0" prefWidth="133.0" text="efectivo" textFill="RED" />
+            <Label fx:id="label_cambio" layoutX="176.0" layoutY="323.0" prefHeight="18.0" prefWidth="143.0" text="cambio" textFill="RED" />
+            <Label fx:id="label_total" layoutX="469.0" layoutY="278.0" prefHeight="25.0" prefWidth="92.0" text="Label" textFill="RED">
+               <font>
+                  <Font name="Segoe UI" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>

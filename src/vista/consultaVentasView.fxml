@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="525.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Controller_consultarVentas">
    <top>
       <Pane prefHeight="88.0" prefWidth="600.0" style="-fx-background-color: #6aca25;" BorderPane.alignment="CENTER">
          <children>
@@ -29,25 +29,25 @@
             </ImageView>
          </children></Pane>
    </top>
-   <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+   <bottom>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tablaVentas" layoutX="46.0" layoutY="200.0" prefHeight="200.0" prefWidth="507.0" AnchorPane.bottomAnchor="34.6521672672493" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.45215707703164" AnchorPane.topAnchor="200.0">
+            <TableView fx:id="tabla_facturas" layoutX="46.0" layoutY="208.0" prefHeight="211.0" prefWidth="508.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="208.0">
               <columns>
-                <TableColumn prefWidth="89.32171630859375" text="ID FACTURA" />
-                <TableColumn prefWidth="290.50439453125" text="CLIENTE" />
-                  <TableColumn prefWidth="131.06082153320312" text="FECHA DE VENTA" />
+                <TableColumn fx:id="columna_id_factura" prefWidth="259.6173667907715" text="ID FACTURA" />
+                  <TableColumn fx:id="columna_fechas" prefWidth="248.76522827148438" text="FECHA DE VENTA" />
               </columns>
             </TableView>
-            <Label layoutX="38.0" layoutY="28.0" prefHeight="38.0" prefWidth="138.0" text="TIPO DE CONSULTA:" AnchorPane.bottomAnchor="371.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="28.0" />
-            <RadioButton fx:id="rb_fecha_intervalo" layoutX="218.0" layoutY="57.0" mnemonicParsing="false" prefHeight="146.0" prefWidth="156.0" text="por intervalo de fechas" AnchorPane.bottomAnchor="338.0" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="57.0" />
-            <RadioButton fx:id="rb_fecha_especifica" layoutX="218.0" layoutY="37.0" mnemonicParsing="false" text="fecha específica" AnchorPane.bottomAnchor="379.6347819994979" AnchorPane.leftAnchor="218.0" AnchorPane.rightAnchor="242.5912997234609" AnchorPane.topAnchor="37.0" />
-            <DatePicker layoutX="218.0" layoutY="106.0" prefHeight="28.0" prefWidth="133.0" promptText="inicio" showWeekNumbers="true" style="-fx-background-color: BLACK;" />
-            <Label layoutX="38.0" layoutY="111.0" prefHeight="20.0" prefWidth="150.0" text="FECHAS DE CONSULTA:" AnchorPane.bottomAnchor="306.3913181932306" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="411.94784101230255" AnchorPane.topAnchor="111.0" />
-            <Label layoutX="360.0" layoutY="112.0" text="hasta" />
-            <DatePicker layoutX="400.0" layoutY="107.0" prefHeight="28.0" prefWidth="133.0" promptText="final" style="-fx-background-color: BLACK;" />
-            <Button layoutX="446.0" layoutY="159.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="CONSULTAR" AnchorPane.leftAnchor="446.0" AnchorPane.rightAnchor="47.0" />
+            <Label layoutX="38.0" layoutY="2.0" prefHeight="38.0" prefWidth="138.0" text="TIPO DE CONSULTA:" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="424.0" AnchorPane.topAnchor="2.0" />
+            <RadioButton fx:id="rb_fecha_intervalo" layoutX="213.0" layoutY="26.0" mnemonicParsing="false" onAction="#switchRadioButton" prefHeight="33.0" prefWidth="158.0" text="intervalo de fechas" AnchorPane.bottomAnchor="420.0" AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="229.0" AnchorPane.topAnchor="26.0" />
+            <RadioButton fx:id="rb_fecha_especifica" layoutX="213.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchRadioButton" prefHeight="39.0" prefWidth="139.0" text="fecha específica" AnchorPane.bottomAnchor="377.0" AnchorPane.leftAnchor="213.0" AnchorPane.rightAnchor="248.0" AnchorPane.topAnchor="63.0" />
+            <DatePicker fx:id="dp_fecha_inicial" layoutX="214.0" layoutY="117.0" prefHeight="28.0" prefWidth="133.0" promptText="inicio" showWeekNumbers="true" style="-fx-background-color: BLACK;" />
+            <Label layoutX="36.0" layoutY="102.0" prefHeight="20.0" prefWidth="150.0" text="FECHAS DE CONSULTA:" AnchorPane.bottomAnchor="315.3913181932306" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="413.94784101230255" AnchorPane.topAnchor="102.0" />
+            <Label fx:id="label_hasta" layoutX="356.0" layoutY="123.0" text="hasta" />
+            <DatePicker fx:id="dp_fecha_final" layoutX="396.0" layoutY="118.0" prefHeight="28.0" prefWidth="133.0" promptText="final" style="-fx-background-color: BLACK;" />
+            <Button fx:id="btn_consultarFacturas" layoutX="447.0" layoutY="164.0" mnemonicParsing="false" onAction="#consultarFacturasFechas" prefHeight="30.0" prefWidth="107.0" text="CONSULTAR" AnchorPane.leftAnchor="447.0" AnchorPane.rightAnchor="46.0" />
+            <Button fx:id="btn_verDetalle" layoutX="469.0" layoutY="431.0" mnemonicParsing="false" onAction="#doubleClikEvent" text="VER DETALLE" />
          </children>
       </AnchorPane>
-   </center>
+   </bottom>
 </BorderPane>
