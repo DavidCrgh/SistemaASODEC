@@ -175,7 +175,7 @@ public class Controller_Facturar implements Initializable{
     @FXML
     public void handleBotonConfirmarVentaAction(ActionEvent event){
         modelo.datos.facturas.add(modelo.factura);
-        //TODO Actualizar inventario
+        modelo.actualizarInventario();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Factura registrada");
         alert.setContentText("Imprimiendo factura...");
@@ -299,6 +299,8 @@ public class Controller_Facturar implements Initializable{
         entrada_IDEstudiante.setText("");
         modelo.carrito = new ArrayList<>();
         tabla_Carrito.getItems().clear();
+        tabla_Productos.getItems().clear();
         modelo.crearNuevaFactura();
+        cargarTablaProductos();
     }
 }

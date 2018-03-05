@@ -23,6 +23,13 @@ public class Modelo_Facturar {
         carrito = new ArrayList<>();
     }
 
+    public void actualizarInventario(){
+        for(Producto p: carrito){
+            Producto prodInventario = obtenerProducto(datos.productos, p.getCodigo());
+            prodInventario.setCantidad(prodInventario.getCantidad() - p.getCantidad());
+        }
+    }
+
     public void crearNuevaFactura(){
         if (datos.facturas.size() > 0) {
             this.factura = new Factura(datos.facturas.get(datos.facturas.size() - 1).getNumeroFactura() + 1);
