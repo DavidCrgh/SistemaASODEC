@@ -90,7 +90,8 @@ public class Controller_consultarVentas implements Initializable{
         }else{
             for (Factura factura:  modelo_consultaVentas.datos.facturas) {
                 Date fechaFactura = factura.getFechaFactura();
-                if (fechaFactura.equals(date1)){
+                if (fechaFactura.getDate()==date1.getDate() &&fechaFactura.getDay()==date1.getDay() &&
+                        fechaFactura.getMonth()==date1.getMonth()){
                     tabla_facturas.getItems().add(factura);
                 }
             }
