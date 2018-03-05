@@ -17,6 +17,7 @@ import modelo.datos.Factura;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -68,17 +69,16 @@ public class Controller_consultarVentas implements Initializable{
 
     @FXML
     public void consultarFacturasFechas(javafx.event.ActionEvent event)  {
+        tabla_facturas.getItems().clear();
         try{
 
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            Format formatter = new SimpleDateFormat("MM/dd/yyyy");
         LocalDate local= dp_fecha_inicial.getValue();
-        LocalDate local1= dp_fecha_final.getValue();
         Instant instant = Instant.from(local.atStartOfDay(ZoneId.systemDefault()));
-
         Date date1 = Date.from(instant);
-
-        tabla_facturas.getItems().clear();
+        formatter.format(date1);
         if (rb_fecha_intervalo.isSelected()) {
+            LocalDate local1= dp_fecha_final.getValue();
             Instant instant1 = Instant.from(local1.atStartOfDay(ZoneId.systemDefault()));
             Date date2 = Date.from(instant1);
             for (Factura factura:  modelo_consultaVentas.datos.facturas) {
@@ -90,13 +90,12 @@ public class Controller_consultarVentas implements Initializable{
         }else{
             for (Factura factura:  modelo_consultaVentas.datos.facturas) {
                 Date fechaFactura = factura.getFechaFactura();
-                if (fechaFactura.compareTo(date1)>=0){
+                if (fechaFactura.equals(date1)){
                     tabla_facturas.getItems().add(factura);
                 }
             }
         }
         }catch (Exception e){
-
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Mensaje de alerta");
             alert.setHeaderText("ALERTA");
